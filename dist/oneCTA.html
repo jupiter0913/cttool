@@ -24,6 +24,9 @@
       <h1>One CTA</h1>
       <div v-if="formscreen">
         <form @submit.prevent="submitForm" class="formstuff">
+          <div id="image_preview" style="text-align: center;">
+            <img v-if="noun1" :src="noun1" style="width: 500px; height: 500px;;" />
+          </div>
           <label for="noun1"><strong>Image url:</strong></label>
           <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/example.png" required />
           <br>
