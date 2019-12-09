@@ -1,0 +1,86 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&amp;display=swap" rel="stylesheet" />
+ 
+ 
+<div id="app">
+  <h1>TIER Clevertap Tool</h1>
+  
+  <div class="formscreen">
+   <form @submit.prevent="submitForm" class="formstuff">
+
+     
+
+      <br>
+      <label for="verb2">How many CTAs?</label>
+     
+      <br>
+     <div class="buttonBox">
+      <button type="submit" style="
+    margin-right: 5px; background:#001c6e;
+" onclick="window.location.href = 'oneCtaLink';">ONE CTA   </button>
+     
+           <button  type="submit"style="
+    margin-left: 5px; background:#001c6e;
+" onclick="window.location.href = 'twoCtaLink';">TWO CTAs</button>
+       </div>
+     
+    </form>
+  </div>
+  <div v-else style="margin-top: 40px;">
+   
+         <button style="background: #001c6e;
+" onclick="copyToClipboard('#p1')">
+
+
+           
+           Copy HTML To Clipboard</button>
+
+        <div id="p1" style="display:none;"><p>{{ fullStatement }}</p></div>
+  
+    
+    <div class="howTo">
+  <h2>HOW TO</h2>    
+<ol>
+  <li>Go to "What"</li>
+  <li>Set template to "Custom HTML"</li>
+  <li>Again, change to "Custom HTML"</li>
+  <li>Click "Source" and <strong>paste</strong> the HTML there</li>
+  <li>Click "Source" again to save, and double check to make sure everything fits within the mock-up - check different phone sizes as well</li>
+  <li>Next set overlay to "Dark"</li>
+  <li>Make sure savascript is enabled</li>
+  <li>Uncheck the "Include close button"</li>
+  <li>Done 😃😃😃</li>
+
+</ol> 
+      </div>
+    
+    
+    
+
+    
+    
+    
+    
+  <img style="border-radius:5px;" src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli"  >
+    
+    
+<h2>Code</h2>
+    
+
+    
+  
+    
+    
+    
+<div id="appBox2">
+  
+
+
+          <div id="p1">{{ fullStatement }}</div>
+   
+</div>
+  
+    </div>
+
+  

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ctTOOL</title>
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Khula" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&amp;display=swap" rel="stylesheet" />
+ 
+ 
+<div style="margin-top: 36px;" id="app">
+  <h1>TIER In-App POPUP Tool</h1>
+  
+  <div class="formscreen">
+   <form @submit.prevent="submitForm" class="formstuff">
+
+     
+
+      <br>
+      <label for="verb2">How many CTAs?</label>
+     
+      <br>
+     <div class="buttonBox">
+      <button type="submit" style="
+    margin-right: 5px;"  class="active" onclick="window.location.href = 'https://www.charlieprather.com/cttool/dist/oneCTA.html';">ONE CTA</button>
+     
+           <button  type="submit" style="
+    margin-left: 5px;" class="active"  onclick="window.location.href = 'https://www.charlieprather.com/cttool/dist/twoCTA.html';">TWO CTAs</button>
+       </div>
+     
+    </form>
+  </div>
+  
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
