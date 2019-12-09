@@ -46,7 +46,7 @@
       <div v-else style="margin-top: 40px;">
         <button class="active" onclick="copyToClipboard('#p1')">
           Copy HTML To Clipboard</button>
-        <div id="p1" style="display:none;">
+        <div v-html="fullStatement" id="p1">
           <p>{{ fullStatement }}</p>
         </div>
         <div class="howTo">
