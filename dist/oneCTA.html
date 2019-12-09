@@ -33,7 +33,7 @@
         <form @submit.prevent="submitForm" class="formstuff">
           <div style="text-align: center;">
             <img v-if="noun1" :src="noun1" class="image_style" />
-            <img v-else src="https://picsum.photos/id/10/450/430" class="image_style"/>
+            <img v-else src="https://via.placeholder.com/300" class="image_style"/>
           </div>
           <label for="noun1"><strong>Image url:</strong></label>
           <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/example.png" required />
