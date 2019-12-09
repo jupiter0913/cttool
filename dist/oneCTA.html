@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
+<style type="text/css">
+  .image_style{
+    width: 300px;
+    height: 300px;
+  }
+</style>
+
 <body>
   <div class="bodyBox">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -24,8 +31,9 @@
       <h1>One CTA</h1>
       <div v-if="formscreen">
         <form @submit.prevent="submitForm" class="formstuff">
-          <div id="image_preview" style="text-align: center;">
-            <img v-if="noun1" :src="noun1" style="width: 500px; height: 500px;;" />
+          <div style="text-align: center;">
+            <img v-if="noun1" :src="noun1" class="image_style" />
+            <img v-else src="https://via.placeholder.com/300" class="image_style"/>
           </div>
           <label for="noun1"><strong>Image url:</strong></label>
           <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/example.png" required />
@@ -44,11 +52,12 @@
         </form>
       </div>
       <div v-else style="margin-top: 40px;">
-        <button class="active" onclick="copyToClipboard('#p1')">
+        <button class="active" onclick="copyToClipboard('#p2')">
           Copy HTML To Clipboard</button>
-        <div v-html="fullStatement" id="p1">
-          <p>{{ fullStatement }}</p>
-        </div>
+        <template>
+          <div v-html="fullStatement" id="p1">
+          </div>
+        </template>
         <div class="howTo">
           <h2>HOW TO</h2>
           <ol>
@@ -68,7 +77,7 @@
           src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli">
         <h2>Code</h2>
         <div id="appBox2">
-          <div id="p1">{{ fullStatement }}</div>
+          <div id="p2">{{ fullStatement }}</div>
         </div>
       </div>
       <!-- partial -->
