@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="./style.css">
 
 </head>
+
+
+
+
 <body>
 <div class="bodyBox">
 
@@ -37,6 +41,19 @@
 
   <div v-if="formscreen">
    <form @submit.prevent="submitForm" class="formstuff">
+
+
+
+  <div style="text-align: center;">
+            <img v-if="noun1" :src="noun1" class="image_style" />
+            <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png" class="image_style" style="
+    box-shadow: #e2e2e2 0px 2px 2px;
+    border-radius: 9px;
+" />
+          </div>
+          
+
+
        <label for="noun1" ><strong>Image url:</strong></label>
       <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/myTier.png" required/>
       <br>
@@ -73,18 +90,38 @@
   </div>
   <div v-else style="margin-top: 40px;">
    
+
          <button style="background: #001c6e;
-" onclick="copyToClipboard('#p1')">
+" onclick="copyToClipboard('#p2')">Copy HTML To Clipboard</button>
 
 
-           
-           Copy HTML To Clipboard</button>
 
-        <div id="p1" style="display:none;"><p>{{ fullStatement }}</p></div>
+            <div class="rightPreviwer">
+          <div class="subHeader" style="text-align: left;">Previewer</div>
+            
+            <div class="appBoxTemplateContainer">
+
+            <div class="appBoxTemplate">
+
+        <template>
+          <div v-html="fullStatement" id="p1">
+          </div>
+        </template>
+
+</div></div></div>
+
+
+
+
+
+
   
+
+
+
     
     <div class="howTo">
-  <h2>HOW TO</h2>    
+  <div class="subHeader">HOW TO</div>    
 <ol>
   <li>Go to "What"</li>
   <li>Set template to "Custom HTML"</li>
@@ -101,15 +138,10 @@
     
     
     
-
+  <img style="border-radius:5px; max-width: 100%;" src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli"  >
     
     
-    
-    
-  <img style="border-radius:5px;" src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli"  >
-    
-    
-<h2>Code</h2>
+<div class="subHeader">Code</div>
     
 
 
@@ -117,7 +149,7 @@
   
 
 
-          <div id="p1">{{ fullStatement }}</div>
+          <div id="p2">{{ fullStatement }}</div>
    
 </div>
   

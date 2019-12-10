@@ -95,7 +95,7 @@ width:100%;
 
 .container {
   padding: 0px;
-  padding-top:5vw;
+  padding-top:2vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -170,7 +170,7 @@ margin-top: 3px;
     vertical-align: top;
     cursor: pointer;
     padding: 0 20px;
-    border-radius: 5px;
+    border-radius: 24px;
     color: #001C6E;
     font-size: 14px;
     font-family: montserrat;
@@ -192,7 +192,7 @@ margin-top: 3px;
     vertical-align: top;
     cursor: pointer;
     padding: 0 20px;
-    border-radius: 5px;
+    border-radius: 24px;
     color: #001C6E;
     font-size: 14px;
     font-family: montserrat;
