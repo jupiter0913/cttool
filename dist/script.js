@@ -2,6 +2,7 @@ new Vue({
   el: '#app',
   data() {
     return {
+      image: '',
       noun1: '',
       noun2: '',
       verb1: '',
@@ -17,7 +18,38 @@ new Vue({
   methods: {
     submitForm() {
       this.formscreen = false;
-    } },
+      this.imageUpload();
+    },
+    onDrop: function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var files = e.dataTransfer.files;
+      this.createFile(files[0]);
+
+    },
+    createFile(file) {
+      if (!file.type.match('image.*')) {
+        alert('Select an image');
+        return;
+      }
+      var img = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = function(e) {
+        vm.noun1 = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    },
+    imageUpload() {
+      var myloc = window.location.href;
+      var locarray = myloc.split("/");
+      delete locarray[(locarray.length-1)];
+      var arraytext = locarray.join("/");
+      arraytext += 'upload';
+      console.log(arraytext);
+    }
+  },
 
   computed: {
     fullStatement() {

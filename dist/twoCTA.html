@@ -44,13 +44,10 @@
 
 
 
-  <div style="text-align: center;">
-            <img v-if="noun1" :src="noun1" class="image_style" />
-            <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png" class="image_style" style="
-    box-shadow: #e2e2e2 0px 2px 2px;
-    border-radius: 9px;
-" />
-          </div>
+  <div style="text-align: center;" @dragover.prevent @drop="onDrop">
+    <img v-if="noun1" :src="noun1" alt="" class="image_style" />
+    <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png" class="image_style" style="box-shadow: #e2e2e2 0px 2px 2px; border-radius: 9px;" />
+  </div>
           
 
 
