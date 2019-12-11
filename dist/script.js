@@ -29,6 +29,11 @@ new Vue({
       this.createFile(files[0]);
     },
 
+    onChange(e) {
+      var files = e.target.files;
+      this.createFile(files[0]);
+    },
+
     createFile(file) {
       if (!file.type.match('image.*')) {
         alert('Select an image');

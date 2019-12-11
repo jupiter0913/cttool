@@ -253,3 +253,20 @@ button:active {
     padding: 30px 10px;
   }
 }
+
+input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.btn {
+  background-color: #d3394c;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 15px 35px;
+  position: relative;
+}
