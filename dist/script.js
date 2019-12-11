@@ -2,7 +2,7 @@ new Vue({
   el: '#app',
   data() {
     return {
-      image: '',
+      images: [],
       noun1: '',
       noun2: '',
       verb1: '',
@@ -10,23 +10,24 @@ new Vue({
       cta: '',
       ctaLink: '',
       cta2: '',
-
       formscreen: true,
-      activeClass: 'active' };
-
+      activeClass: 'active'
+    };
   },
+
   methods: {
     submitForm() {
       this.formscreen = false;
       this.imageUpload();
     },
-    onDrop: function(e) {
+
+    onDrop: function (e) {
       e.stopPropagation();
       e.preventDefault();
       var files = e.dataTransfer.files;
       this.createFile(files[0]);
-
     },
+
     createFile(file) {
       if (!file.type.match('image.*')) {
         alert('Select an image');
@@ -35,16 +36,17 @@ new Vue({
       var img = new Image();
       var reader = new FileReader();
       var vm = this;
-
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         vm.noun1 = e.target.result;
+        vm.images.push(e.target.result);
       }
       reader.readAsDataURL(file);
     },
+
     imageUpload() {
       var myloc = window.location.href;
       var locarray = myloc.split("/");
-      delete locarray[(locarray.length-1)];
+      delete locarray[(locarray.length - 1)];
       var arraytext = locarray.join("/");
       arraytext += 'upload';
       console.log(arraytext);
@@ -62,12 +64,11 @@ new Vue({
     display: block;
     margin: 0px; 
 }
-    
-    a { 
+
+a { 
   color: #001C6E;
   text-decoration: none;
 }
-    
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -119,7 +120,6 @@ new Vue({
 *:after {
   box-sizing: border-box;
 }
-    
 #container{
   height:100%;
 width:100%;
@@ -266,12 +266,9 @@ margin-top: 3px;
 </body>
 </html>
 `;
-    } } });
-
-
-
-
-
+    }
+  }
+});
 
 function copyToClipboard(element) {
   var $temp = $("<input>");
@@ -280,7 +277,5 @@ function copyToClipboard(element) {
   document.execCommand("copy");
 
   $temp.remove();
-
-
 
 }
