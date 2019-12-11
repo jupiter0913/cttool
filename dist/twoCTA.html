@@ -27,7 +27,7 @@
         <form @submit.prevent="submitForm" class="formstuff">
           <div style="text-align: center; margin-bottom: 32px;" @dragover.prevent @drop="onDrop">
             <div style="float: left; width: 36%;">
-              <img v-if="noun1" :src="noun1" alt="" class="image_style" />
+              <img v-if="image" :src="image" alt="" class="image_style" />
               <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png"
                 class="image_style" style="box-shadow: #e2e2e2 0px 2px 2px; border-radius: 9px;" />
             </div>
@@ -37,9 +37,9 @@
             </div>
           </div>
 
-          <label for="noun1"><strong>Image url:</strong></label>
+          <!-- <label for="noun1"><strong>Image url:</strong></label>
           <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/myTier.png" required />
-          <br>
+          <br> -->
           <label for="noun2"><strong>Title:</strong></label>
           <input type="text" id="noun2" v-model="noun2" placeholder="Buy a myTIER!" required />
           <br>

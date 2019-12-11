@@ -3,6 +3,7 @@ new Vue({
   data() {
     return {
       images: [],
+      image: '',
       noun1: '',
       noun2: '',
       verb1: '',
@@ -37,7 +38,7 @@ new Vue({
       var reader = new FileReader();
       var vm = this;
       reader.onload = function (e) {
-        vm.noun1 = e.target.result;
+        vm.image = e.target.result;
         vm.images.push(e.target.result);
       }
       reader.readAsDataURL(file);
