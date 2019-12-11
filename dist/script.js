@@ -2,6 +2,8 @@ new Vue({
   el: '#app',
   data() {
     return {
+      images: [],
+      image: '',
       noun1: '',
       noun2: '',
       verb1: '',
@@ -9,15 +11,53 @@ new Vue({
       cta: '',
       ctaLink: '',
       cta2: '',
-
       formscreen: true,
-      activeClass: 'active' };
-
+      activeClass: 'active'
+    };
   },
+
   methods: {
     submitForm() {
       this.formscreen = false;
-    } },
+      this.imageUpload();
+    },
+
+    onDrop: function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var files = e.dataTransfer.files;
+      this.createFile(files[0]);
+    },
+
+    onChange(e) {
+      var files = e.target.files;
+      this.createFile(files[0]);
+    },
+
+    createFile(file) {
+      if (!file.type.match('image.*')) {
+        alert('Select an image');
+        return;
+      }
+      var img = new Image();
+      var reader = new FileReader();
+      var vm = this;
+      reader.onload = function (e) {
+        vm.image = e.target.result;
+        vm.images.push(e.target.result);
+      }
+      reader.readAsDataURL(file);
+    },
+
+    imageUpload() {
+      var myloc = window.location.href;
+      var locarray = myloc.split("/");
+      delete locarray[(locarray.length - 1)];
+      var arraytext = locarray.join("/");
+      arraytext += 'upload';
+      console.log(arraytext);
+    }
+  },
 
   computed: {
     fullStatement() {
@@ -30,12 +70,11 @@ new Vue({
     display: block;
     margin: 0px; 
 }
-    
-    a { 
+
+a { 
   color: #001C6E;
   text-decoration: none;
 }
-    
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -87,7 +126,6 @@ new Vue({
 *:after {
   box-sizing: border-box;
 }
-    
 #container{
   height:100%;
 width:100%;
@@ -95,7 +133,7 @@ width:100%;
 
 .container {
   padding: 0px;
-  padding-top:5vw;
+  padding-top:2vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -170,7 +208,7 @@ margin-top: 3px;
     vertical-align: top;
     cursor: pointer;
     padding: 0 20px;
-    border-radius: 5px;
+    border-radius: 24px;
     color: #001C6E;
     font-size: 14px;
     font-family: montserrat;
@@ -192,7 +230,7 @@ margin-top: 3px;
     vertical-align: top;
     cursor: pointer;
     padding: 0 20px;
-    border-radius: 5px;
+    border-radius: 24px;
     color: #001C6E;
     font-size: 14px;
     font-family: montserrat;
@@ -234,12 +272,9 @@ margin-top: 3px;
 </body>
 </html>
 `;
-    } } });
-
-
-
-
-
+    }
+  }
+});
 
 function copyToClipboard(element) {
   var $temp = $("<input>");
@@ -248,7 +283,5 @@ function copyToClipboard(element) {
   document.execCommand("copy");
 
   $temp.remove();
-
-
 
 }

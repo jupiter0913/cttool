@@ -1,130 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>CT TOOL 2nd half 2 CTAs</title>
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Khula" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Khula" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<div class="bodyBox">
+  <div class="bodyBox">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700&amp;display=swap" rel="stylesheet" />
+    <a href="https://www.charlieprather.com/cttool/dist/index.html">
+      <div id="backButton"> START OVER </div>
+    </a>
+    <a href="https://www.charlieprather.com/cttool/dist/oneCTA.html">
+      <div id="otherButton"> 1 CTA </div>
+    </a>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <div id="app">
+      <div class="headerTitle">TIER In-App POPUP Tool</div>
+      <h1>Two CTA's</h1>
+      <div v-if="formscreen">
+        <form @submit.prevent="submitForm" class="formstuff">
+          <div style="text-align: center; margin-bottom: 32px;" @dragover.prevent @drop="onDrop">
+            <div style="float: left; width: 36%;">
+              <label class="btn display-inline">DRAG AND DROP TO UPLOAD AN IMAGE OR
+                <input type="file" name="image" @change="onChange">
+              </label>
+              <img v-if="image" :src="image" alt="" class="image_style" />
+              <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png"
+                class="image_style" style="box-shadow: #e2e2e2 0px 2px 2px; border-radius: 9px;" />
+            </div>
+            <div style="width: 64%; float: left; margin-top: 10px">
+              <label class="btn display-inline">SELECT AN IMAGE TO USE</label>
+              <div style="text-align: left; margin-top: 42px;">
+                <img v-for="img in images" :src="img"
+                  style="width:105px; height:105px; margin-top: 0px; margin-bottom: 0px; padding: 5px;">
+              </div>
+            </div>
+          </div>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700&amp;display=swap" rel="stylesheet" />
-
-
-<a href="https://www.charlieprather.com/cttool/dist/index.html">
-<div id="backButton"> START OVER </div>
-</a>
-
-
-<a href="https://www.charlieprather.com/cttool/dist/oneCTA.html">
- <div id="otherButton">  1 CTA </div>
-</a>
-
-
-
-<div id="app">
-
-
-  <div class="headerTitle">TIER In-App POPUP Tool</div>
-
-  <h1>Two CTA's</h1>
-    
-
-
-  <div v-if="formscreen">
-   <form @submit.prevent="submitForm" class="formstuff">
-       <label for="noun1" ><strong>Image url:</strong></label>
-      <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/myTier.png" required/>
-      <br>
-      <label for="noun2"><strong>Title:</strong></label>
-      <input type="text" id="noun2" v-model="noun2" placeholder="Buy a myTIER!" required/>
-    
-      <br>
-     
-     
-      <label for="verb2"><strong>Statement:</strong></label>
-      <input type="text" id="verb2" v-model="verb2" placeholder="You can now own your very own TIER scooter!" required/>
-      <br>
-     
-     
-           <label for="cta"><strong>CTA #1 Label:</strong></label>
-      <input type="text" id="cta" v-model="cta" placeholder="OKAY!" required/>
-      <br>
-                <label for="ctaLink"><strong>CTA #1 Link:</strong></label>
-      <input type="url" id="ctaLink" v-model="ctaLink" placeholder="https://www.myTier.app/shop" required/>
-      <br>
-     
-                <label for="cta2"><strong>CTA #2 Label</strong> (This CTA closes the popup):</label> 
-      <input type="text" id="cta2" v-model="cta2" placeholder="Dismiss!" required/>
-      <br>
-      
-      <br>
-     
-     
-     
-      <button :class="[cta2 ? activeClass : '']" type="submit">Submit</button>
-     
-     
-    </form>
-  </div>
-  <div v-else style="margin-top: 40px;">
-   
-         <button style="background: #001c6e;
-" onclick="copyToClipboard('#p1')">
-
-
-           
-           Copy HTML To Clipboard</button>
-
-        <div id="p1" style="display:none;"><p>{{ fullStatement }}</p></div>
-  
-    
-    <div class="howTo">
-  <h2>HOW TO</h2>    
-<ol>
-  <li>Go to "What"</li>
-  <li>Set template to "Custom HTML"</li>
-  <li>Again, change to "Custom HTML"</li>
-  <li>Click "Source" and <strong>paste</strong> the HTML there</li>
-  <li>Click "Source" again to save, and double check to make sure everything fits within the mock-up - check different phone sizes as well</li>
-  <li>Next set overlay to <strong>"Dark"</strong></li>
-  <li><strong>Make sure Javascript is enabled</strong></li>
-  <li>Uncheck the "Include close button"</li>
-  <li>Done 😃</li>
-
-</ol> 
+          <!-- <label for="noun1"><strong>Image url:</strong></label>
+          <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/myTier.png" required />
+          <br> -->
+          <label for="noun2"><strong>Title:</strong></label>
+          <input type="text" id="noun2" v-model="noun2" placeholder="Buy a myTIER!" required />
+          <br>
+          <label for="verb2"><strong>Statement:</strong></label>
+          <input type="text" id="verb2" v-model="verb2" placeholder="You can now own your very own TIER scooter!"
+            required />
+          <br>
+          <label for="cta"><strong>CTA #1 Label:</strong></label>
+          <input type="text" id="cta" v-model="cta" placeholder="OKAY!" required />
+          <br>
+          <label for="ctaLink"><strong>CTA #1 Link:</strong></label>
+          <input type="url" id="ctaLink" v-model="ctaLink" placeholder="https://www.myTier.app/shop" required />
+          <br>
+          <label for="cta2"><strong>CTA #2 Label</strong> (This CTA closes the popup):</label>
+          <input type="text" id="cta2" v-model="cta2" placeholder="Dismiss!" required />
+          <br>
+          <br>
+          <button :class="[cta2 ? activeClass : '']" type="submit">Submit</button>
+        </form>
       </div>
-    
-    
-    
-
-    
-    
-    
-    
-  <img style="border-radius:5px;" src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli"  >
-    
-    
-<h2>Code</h2>
-    
-
-
-<div id="appBox2">
-  
-
-
-          <div id="p1">{{ fullStatement }}</div>
-   
-</div>
-  
+      <div v-else style="margin-top: 40px;">
+        <button style="background: #001c6e;" onclick="copyToClipboard('#p2')">Copy HTML To Clipboard</button>
+        <div class="rightPreviwer">
+          <div class="subHeader" style="text-align: left;">Previewer</div>
+          <div class="appBoxTemplateContainer">
+            <div class="appBoxTemplate">
+              <template>
+                <div v-html="fullStatement" id="p1">
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="howTo">
+          <div class="subHeader">HOW TO</div>
+          <ol>
+            <li>Go to "What"</li>
+            <li>Set template to "Custom HTML"</li>
+            <li>Again, change to "Custom HTML"</li>
+            <li>Click "Source" and <strong>paste</strong> the HTML there</li>
+            <li>Click "Source" again to save, and double check to make sure everything fits within the mock-up - check
+              different phone sizes as well</li>
+            <li>Next set overlay to <strong>"Dark"</strong></li>
+            <li><strong>Make sure Javascript is enabled</strong></li>
+            <li>Uncheck the "Include close button"</li>
+            <li>Done 😃</li>
+          </ol>
+        </div>
+        <img style="border-radius:5px; max-width: 100%;"
+          src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli">
+        <div class="subHeader">Code</div>
+        <div id="appBox2">
+          <div id="p2">{{ fullStatement }}</div>
+        </div>
+      </div>
+      <!-- partial -->
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+      <script src="./script.js"></script>
     </div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
-</div>
 </body>
+
 </html>
