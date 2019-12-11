@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
-
-
 <body>
   <div class="bodyBox">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -28,10 +26,8 @@
         <form @submit.prevent="submitForm" class="formstuff">
           <div style="text-align: center;">
             <img v-if="noun1" :src="noun1" class="image_style" />
-            <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png" class="image_style" style="
-    box-shadow: #e2e2e2 0px 2px 2px;
-    border-radius: 9px;
-" />
+            <img v-else src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575974523/Group_10_futxid.png"
+              class="image_style" style="box-shadow: #e2e2e2 0px 2px 2px; border-radius: 9px;" />
           </div>
           <label for="noun1"><strong>Image url:</strong></label>
           <input type="url" id="noun1" v-model="noun1" placeholder="https://www.example.com/example.png" required />
@@ -50,39 +46,20 @@
         </form>
       </div>
 
-            <div v-else style="margin-top: 40px;">
-      
-
-
-
-  <button class="active" onclick="copyToClipboard('#p2')">
+      <div v-else style="margin-top: 40px;">
+        <button class="active" onclick="copyToClipboard('#p2')">
           Copy HTML To Clipboard</button>
-
-
-
-
-
-            <div class="rightPreviwer">
+        <div class="rightPreviwer">
           <div class="subHeader" style="text-align: left;">Previewer</div>
-            
-            <div class="appBoxTemplateContainer">
-
+          <div class="appBoxTemplateContainer">
             <div class="appBoxTemplate">
-
-        <template>
-          <div v-html="fullStatement" id="p1">
+              <template>
+                <div v-html="fullStatement" id="p1">
+                </div>
+              </template>
+            </div>
           </div>
-        </template>
-
-</div></div></div>
-
-
-
-
-
-
-
-          
+        </div>
         <div class="howTo">
           <div class="subHeader">HOW TO</div>
           <ol>
@@ -98,8 +75,9 @@
             <li>Done 😃</li>
           </ol>
         </div>
-        <img style="border-radius:5px; max-width: 100%;" 
-          src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli" width="100%">
+        <img style="border-radius:5px; max-width: 100%;"
+          src="https://res.cloudinary.com/dfqw8ycgy/image/upload/v1575748103/ct_tutorial_2_bqwow1.gif" alt="Trulli"
+          width="100%">
         <div class="subHeader">Code</div>
         <div id="appBox2">
           <div id="p2">{{ fullStatement }}</div>

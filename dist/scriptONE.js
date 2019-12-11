@@ -8,13 +8,16 @@ new Vue({
       verb2: '',
       cta: '',
       formscreen: true,
-      activeClass: 'active' };
+      activeClass: 'active'
+    };
 
   },
+
   methods: {
     submitForm() {
       this.formscreen = false;
-    } },
+    }
+  },
 
   computed: {
     fullStatement() {
@@ -221,12 +224,9 @@ margin-top: 3px;
 </body>
 </html>
 `;
-    } } });
-
-
-
-
-
+    }
+  }
+});
 
 function copyToClipboard(element) {
   var $temp = $("<input>");
@@ -234,5 +234,4 @@ function copyToClipboard(element) {
   $temp.val($(element).text()).select();
   document.execCommand("copy");
   $temp.remove();
-
 }
